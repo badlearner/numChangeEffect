@@ -1,0 +1,16 @@
+{
+  "name": "numChangeEffect",
+  "version": "0.0.1",
+  "description": "the effect num changes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "effect",
+    "change",
+    "nums"
+  ],
+  "author": "Zheng Xu",
+  "license": "MIT"
+}
