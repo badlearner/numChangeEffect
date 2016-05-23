@@ -5,7 +5,6 @@
 		from: 0,
 		to: 100,
 		speed: 2000,
-		fixnum:2,//默认保留两位小数
 		refreshInterval: 100,//数字变化时间间隔
 		fixednum:0//保留的小数位数
 	};
