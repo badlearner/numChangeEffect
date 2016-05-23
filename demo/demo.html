@@ -2,9 +2,21 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>数字效果插件</title>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../dis/js/numChangeEffect.min.js"></script>
+<style type="text/css">
+.num{
+	color:#06F;
+	font-family:Tahoma, Geneva, sans-serif;
+}
+</style>
+<title>数字递增，递减效果插件</title>
 </head>
-
 <body>
+<h2 class="num" id="num">130</h2>
+<script type="text/javascript">
+   var begin=parseInt($("#num").text());
+   $("#num").numChangeEffect({from:begin,to:300,fixednum:0,speed: 1000});
+</script>
 </body>
 </html>
