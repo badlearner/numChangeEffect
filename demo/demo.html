@@ -2,21 +2,39 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link type="text/css" href="../css/base.css" rel="stylesheet" />
+<link type="text/css" href="../css/bootstrap.css" rel="stylesheet" />
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/numChangeEffect.js"></script>
-<style type="text/css">
-.num{
-	color:#06F;
-	font-family:Tahoma, Geneva, sans-serif;
-}
-</style>
 <title>数字递增，递减效果插件</title>
 </head>
 <body>
-<h2 class="num" id="num">130</h2>
+<div class="left-bar">
+ <div class="title"><a href=""><span class="glyphicon glyphicon glyphicon-th-large"></span></a></div>
+</div>
+<div class="top-bar">
+</div>
+<div class="main">
+   <div class="center">
+     <h2 class="num" id="num">130</h2>
+     <input type="text" name="email" class="email" />
+   </div>
+</div>
 <script type="text/javascript">
-   var begin=parseInt($("#num").text());
-   $("#num").numChangeEffect({from:begin,to:300,fixednum:0,speed: 1000});
+$(function(){
+	$(window).scroll(function(){
+		if($(window).scrollTop()<=300){
+		   $(".left-bar").animate({left:'-47px'},400,'linear');
+		   $(".top-bar").animate({top:'0'},400,'linear');
+	    }
+		if($(window).scrollTop()>300){
+		   $(".left-bar").animate({left:'0'},400,'linear');
+		   $(".top-bar").animate({top:'-47px'},400,'linear');
+		}
+	});
+	var begin=parseInt($("#num").text());
+    $("#num").numChangeEffect({from:begin,to:187,fixednum:2,speed: 1000});	
+})   
 </script>
 </body>
 </html>

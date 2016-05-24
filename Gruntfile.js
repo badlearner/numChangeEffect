@@ -22,22 +22,22 @@ module.exports = function(grunt) {
 	//css文件压缩
 	cssmin: {
 		options: {
-			keepSpecialComments:1,
+			banner:'/**\n* author:<%= pkg.author %>\n* version:<%= pkg.version %>\n* <%= pkg.description %>\n*/\n/* <%= pkg.name %> 最后修改于： <%= grunt.template.today("yyyy-mm-dd") %> */',
             beautify:{//中文ascii化，非常有用！防止中文乱码的神配置
                 ascii_only:true
             }
         },
 		dist: {//子任务一
             files: {
-                'dis/assets/css/ace.min.css': ['dev/assets/css/ace.css']
+                './dis/css/base.min.css': ['./css/base.css']
             }
         },
         target: {//子任务二该目录下的所有文件压缩
            files: [{
                 expand: true,
-                cwd: 'dev/assets/css',//css目录下
+                cwd: './css',//css目录下
                 src: ['**/*.css'],//所有css文件
-                dest: 'dis/assets/css',//输出的目录下
+                dest: './dis/css',//输出的目录下
                 ext: '.min.css'//结尾
             }]
         }
@@ -46,15 +46,14 @@ module.exports = function(grunt) {
 	uglify: {
         options: {
 			mangle: false, //不混淆变量名
-			banner:'/**\n* author:<%= pkg.author %>\n* version:<%= pkg.version %>\n* <%= pkg.description %>\n* <%= pkg.keywords %>\n*/\n',
+			banner:'/**\n* author:<%= pkg.author %>\n* version:<%= pkg.version %>\n* <%= pkg.description %>\n*/\n/* <%= pkg.name %> 最后修改于： <%= grunt.template.today("yyyy-mm-dd") %> */',
             footer:'\n/* <%= pkg.name %> 最后修改于： <%= grunt.template.today("yyyy-mm-dd") %> */'//添加footer
 	    },
 	    builda: {//任务一:压缩ace.js,不混淆变量名,保留注释，添加banner和footer
             options: {
                mangle: false, //不混淆变量名
                preserveComments: 'all', //不删除注释,还可以为 false(删除全部注释),some(保留@preserve @license @cc_on等注释)
-			   banner:'/**\n* author:<%= pkg.author %>\n* version:<%= pkg.version %>\n* <%= pkg.description %>\n*/\n',
-               footer:'\n/* <%= pkg.name %> 最后修改于： <%= grunt.template.today("yyyy-mm-dd") %> */'//添加footer
+			   banner:'/**\n* author:<%= pkg.author %>\n* version:<%= pkg.version %>\n* <%= pkg.description %>\n*/\n/* <%= pkg.name %> 最后修改于： <%= grunt.template.today("yyyy-mm-dd") %> */',
             },
             files: {
                 'dis/js/numChangeEffect.min.js': ['js/numChangeEffect.js']
@@ -118,11 +117,11 @@ module.exports = function(grunt) {
 	//实时监控被修改的文件
 	watch: {
         scripts: {
-            files: ['dev/assets/js/**/*.js'],
-            tasks: ['jshint','htmlmin']
+            files: ['./js/**/*.js'],
+            tasks: ['jshint']
         },
 		css: {
-            files: 'dev/assets/css/**/*.css',
+            files: './css/**/*.css',
             tasks: ['mincss'],
             options: {
                 livereload: true,
@@ -175,8 +174,8 @@ module.exports = function(grunt) {
   grunt.registerTask('minhtml',['htmlmin']);
   grunt.registerTask('concatjs',['concat']);
   grunt.registerTask('minimage',['imagemin']);
-  grunt.registerTask('mincss',['cssmin']);
+  grunt.registerTask('mincss',['cssmin:target']);
   grunt.registerTask('compressjs',['concat','jshint','uglify']);
-  grunt.registerTask('watchit',['cssmin','imagemin','htmlmin','connect','watch']);
+  grunt.registerTask('watchit',['cssmin',connect','watch']);
   grunt.registerTask('default');
 };
