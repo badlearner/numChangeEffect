@@ -1,0 +1,57 @@
+
+/*! time:2016-06-17:11 */
+/*! CSS Document
+ * reset.css
+ * author Zheng Xu
+ */
+html {
+  font-family: "Microsoft YaHei", "Helvetica", "sans-serif";
+  background: #fff;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+html, body, fieldset, iframe, abbr {
+  border: 0;
+}
+
+ul, li {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a, button {
+  cursor: pointer;
+  outline: 0;
+}
+
+del, ins, u, s, a, a:hover {
+  text-decoration: none;
+}
+
+i, city, em, var, address, dfn {
+  font-style: normal;
+}
+
+/*# sourceMappingURL=index.css.map */

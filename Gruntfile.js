@@ -2,16 +2,18 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),//读取项目信息文件
 	//要输出的sass文件
-     /* sass: {
+      sass: {
       output : {
         options: {
-          style: sassStyle
+            banner:'\n/*! time:<%= grunt.template.today("yyyy-mm-dd") %> */',
+            style: 'expanded',
+            unixNewlines: true
         },
         files: {
-          './style.css': './scss/style.scss'
+          './css/index.css': './scss/index.scss'
         }
       }
-    },*/
+    },
 	//js文件合并
     concat: {
       dist: {
@@ -19,29 +21,18 @@ module.exports = function(grunt) {
         dest: './global.js',
       }
     },
-	//css文件压缩
-	cssmin: {
-		options: {
-			banner:'/**\n* author:<%= pkg.author %>\n* version:<%= pkg.version %>\n* <%= pkg.description %>\n*/\n/* <%= pkg.name %> 最后修改于： <%= grunt.template.today("yyyy-mm-dd") %> */',
-            beautify:{//中文ascii化，非常有用！防止中文乱码的神配置
-                ascii_only:true
-            }
-        },
-		dist: {//子任务一
-            files: {
-                './dis/css/base.min.css': ['./css/base.css']
-            }
-        },
-        target: {//子任务二该目录下的所有文件压缩
-           files: [{
-                expand: true,
-                cwd: './css',//css目录下
-                src: ['**/*.css'],//所有css文件
-                dest: './dis/css',//输出的目录下
-                ext: '.min.css'//结尾
-            }]
-        }
-    },
+      //css文件压缩
+      cssmin: {
+          dist: {
+              options: {
+                  banner: '',
+                  keepSpecialComments: '*'
+              },
+              files: {
+                  './css/index.min.css': ['./css/index.css']
+              }
+          }
+      },
 	//js文件压缩
 	uglify: {
         options: {
@@ -153,7 +144,7 @@ module.exports = function(grunt) {
         server: {
             options: {
                 port: 9001,
-                base: './dis'
+                base: './demo'
             }
         }
     }
@@ -169,13 +160,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');//html文件压缩模块
   grunt.loadNpmTasks('grunt-contrib-imagemin');//图片文件压缩模块
   //任务命令配置
-  //grunt.registerTask('outputcss',['sass']);
+  grunt.registerTask('outputcss',['sass']);
   grunt.registerTask('minjs',['uglify:builda']);
   grunt.registerTask('minhtml',['htmlmin']);
   grunt.registerTask('concatjs',['concat']);
   grunt.registerTask('minimage',['imagemin']);
-  grunt.registerTask('mincss',['cssmin:target']);
+  grunt.registerTask('mincss',['cssmin:dist']);
   grunt.registerTask('compressjs',['concat','jshint','uglify']);
-  grunt.registerTask('watchit',['cssmin',connect','watch']);
+  grunt.registerTask('watchit',['cssmin','connect','watch']);
   grunt.registerTask('default');
 };

@@ -18,15 +18,25 @@ label,summary{cursor:default;}
 a,button{cursor:pointer;}
 h1,h2,h3,h4,h5,h6,em,b{font-size:100%;}
 del,ins,u,s,a,a:hover{text-decoration:none;}
-a,a:hover{outline:none;}
+a,a:hover,button,button:hover{outline:none; cursor:pointer;}
 a{color:#CCC;}
 a:hover{color:#fff;}
 
 .left-bar .title{color:#fff; font-size:1.4em; width:22px; margin:5px auto;}
 .num{color:#06F;font-family:Tahoma, Geneva, sans-serif;}
-.top-bar{position:fixed;height:45px;width:100%;left:0;top:0;background-color:#333;}
+.top-bar{position:absolute;height:45px;width:100%;left:0;top:0;background-color:#333;}
 .left-bar{position:fixed;width:45px;height:100%;left:-47px;top:0; box-shadow:1px 1px 2px #CCC; background-color:#333;}
 .main{ margin-top:47px;}
 .main .center{ margin:20px auto; width:900px;height:1500px;}
-.email{border:1px solid #CCC;box-shadow:0px 0px 0px #CCC;padding:6px 6px;height:25px;background-color:#fff;outline:none; transition:all 0.3s;}
-.email:focus{border:1px solid #bbb;box-shadow:0px 0px 4px #bbb;background-color:#fff;}
+.email{border:none; border-bottom:2px solid #ccc;height:26px; padding:2px 5px; *line-height:26px;*padding:0 5px;_padding:0;background-color:#fff;outline:none; transition:all 0.3s;background-color:transparent;width:200px;*width:190px;}
+.email:focus{background-color:#transparent;}
+.right-bar{position:fixed;width:40px;height:100%;right:-40px;top:0;background-color:#333; }
+.bar{height:100%;position: absolute;z-index: 999998;top: 0;left: -5px;width: 35px;color:#03F;}
+.dd{position: absolute;z-index: 999999;left: -36px;height:50px;width:50px;}
+.input{ position:relative;margin-top:25px; height:26px;}
+.input .label{ position:absolute;z-index:-1;left:5px; top:2px; color:#CACCD6; font-size:14px;}
+.input .line{ position:absolute; display:block; height:2px; background-color:#06F; z-index:5; top:24px;*top:27px;left:0;width:0px;}
+.random{margin:20px auto; zoom:1;}
+.random .nums{float:left;display:block; padding:3px 4px; background-color:#06F; color:#fff; border-radius:3px; margin-left:10px; margin-top:5px;}
+.ssbtn{ margin:20px auto; clear:both; display:block; padding:20px;}
+.ssbtn .btns{border:2px #03F solid; padding:5px 8px; color:#06F; background-color:transparent;}
