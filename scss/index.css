@@ -1,0 +1,119 @@
+/*! CSS Document
+ * reset.css
+ * author Zheng Xu
+ */
+html, body {
+  font-family: "Microsoft YaHei", "Helvetica", "sans-serif";
+  background: #fff;
+  font-size: 14px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+html, body, fieldset, iframe, abbr {
+  border: 0; }
+
+ul, li {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a, button {
+  cursor: pointer;
+  outline: 0; }
+
+label {
+  cursor: text; }
+
+del, ins, u, s, a, a:hover {
+  text-decoration: none;
+  color: #333; }
+
+i, city, em, var, address, dfn {
+  font-style: normal; }
+
+textarea {
+  resize: none;
+  overflow: hidden; }
+
+.float-r {
+  float: right; }
+
+.float-l {
+  float: left; }
+
+.float-no {
+  float: none; }
+
+.border-r5 {
+  width: 100px;
+  height: 40px;
+  border: 2px #ddd solid;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-top-right-radius: 10px;
+  -o-border-top-right-radius: 10px;
+  -ms-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -moz-border-bottom-right-radius: 10px;
+  -o-border-bottom-right-radius: 10px;
+  -ms-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px; }
+
+.martop-5 {
+  margin: 15px;
+  font-size: 1.28571em; }
+
+.min-icon {
+  background: #ead1a8 url(../img/index-icon.png) no-repeat; }
+
+.animate {
+  -webkit-box-shadow: 2px 3px 4px #dddddd;
+  -o-box-shadow: 2px 3px 4px #dddddd;
+  -moz-box-shadow: 2px 3px 4px #dddddd;
+  -ms-box-shadow: 2px 3px 4px #dddddd;
+  box-shadow: 2px 3px 4px #dddddd;
+  -webkit-animation: all, 0.5s, ease-in-out;
+  -moz-animation: all, 0.5s, ease-in-out;
+  -o-animation: all, 0.5s, ease-in-out;
+  -ms-animation: all, 0.5s, ease-in-out;
+  animation: all, 0.5s, ease-in-out; }
+
+.item-1 {
+  width: 2em; }
+
+.item-2 {
+  width: 4em; }
+
+.item-3 {
+  width: 6em; }
+
+.puma-icon {
+  background-image: url("/images/puma.png"); }
+
+.sea-slug-icon {
+  background-image: url("/images/sea-slug.png"); }
+
+.egret-icon {
+  background-image: url("/images/egret.png"); }
+
+.salamander-icon {
+  background-image: url("/images/salamander.png"); }
+
+/*# sourceMappingURL=index.css.map */

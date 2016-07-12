@@ -1,0 +1,132 @@
+/*! CSS Document
+ * reset.css
+ * author Zheng Xu
+ */
+$fontStack:"Microsoft YaHei","Helvetica","sans-serif";
+$basecolor:#333;
+$basebgcolor:#fff;
+$baseFontSize:10px;
+$baseFontSize2:14px;
+//all margin
+@mixin margin($valuetb:null,$valuerl:null){
+  margin:$valuetb $valuerl;
+}
+//all padding
+@mixin padding($valuetb:null,$valuerl:null){
+  padding:$valuetb $valuerl;
+}
+//display
+@mixin display($type){
+  display:$type;
+}
+//cursor
+@mixin cursor($type){
+  cursor: $type;
+}
+//outline
+@mixin outline($type){
+  outline: $type;
+}
+//corlor
+@mixin color($value){
+ color:$value;
+}
+//list-style
+@mixin list-style($type){
+  list-style: $type;
+}
+//font-style
+@mixin font-style($type){
+  font-style: $type;
+}
+//text-decoration
+@mixin text-decoration($type){
+  text-decoration: $type;
+}
+//width
+@mixin width($val){
+  width:$val;
+}
+//height
+@mixin height($val){
+  height:$val;
+}
+//borderall
+@mixin border($val:null,$color:null,$type:null){
+  border:$val $color $type;
+}
+//borderone
+@mixin borderone($dire,$val:null,$color:null,$type:null){
+  border-#{$dire}:$val $color $type;
+}
+//border-collapse
+@mixin border-collapse($type){
+  border-collapse:$type;
+}
+//overflow
+@mixin overflow($type){
+  overflow:$type;
+}
+//border-spacing
+@mixin border-spacing($val){
+  border-spacing:$val;
+}
+// pixels to rems
+@function pxToRem($px) {
+  @return $px / $baseFontSize * 1rem;
+}
+// pixels to em
+@function pxToEm($px) {
+  @return $px / $baseFontSize2 * 1em;
+}
+html,body{
+  font-family: $fontStack;
+  background: $basebgcolor;
+  font-size: 14px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  @include display(block);
+}
+html,body,fieldset,iframe,abbr{
+  @include border(0);
+}
+ul,li{
+  @include list-style(none);
+}
+table{
+  @include border-collapse(collapse);
+  @include border-spacing(0);
+
+}
+a,button{
+  @include cursor(pointer);
+  @include outline(0);
+}
+label{
+  @include cursor(text);
+}
+del,ins,u,s,a,a:hover{
+  @include text-decoration(none);
+  @include color(#333);
+}
+i,city,em,var,address,dfn{
+  @include font-style(normal);
+}
+textarea{
+  resize:none;
+  @include overflow(hidden);
+}

@@ -1,0 +1,83 @@
+@import "reset.scss";//can user reset.scss functions
+//background
+@mixin background($bgname,$type,$repeat,$position:null){
+  $url:"../img";
+  $color:#ead1a8;
+  background:$color url(#{$url}/#{$bgname}.#{$type}) $repeat $position;
+}
+//float
+@mixin float($type){
+  float:$type;
+}
+//background-position
+@mixin bgposition($x,$y){
+background-position: $x $y;
+}
+//border-radiusall
+@mixin border-radiusall($value){
+  -webkit-border-radius: $value;
+  -moz-border-radius: $value;
+  -o-border-radius:$value;
+  -ms-border-radius:$alue;
+  border-radius: $value;
+}
+//border-radiusone
+@mixin border-radiusone($vert,$horz,$value){
+  -webkit-border-#{$vert}-#{$horz}-radius: $value;
+  -moz-border-#{$vert}-#{$horz}-radius: $value;
+  -o-border-#{$vert}-#{$horz}-radius:$value;
+  -ms-border-#{$vert}-#{$horz}-radius:$value;
+  border-#{$vert}-#{$horz}-radius: $value;
+}
+@mixin box-shadow($x,$y,$color,$over,$type:null){
+  -webkit-box-shadow:$x $y $color $over $type;
+  -o-box-shadow:$x $y $color $over $type;
+  -moz-box-shadow:$x $y $color $over $type;
+  -ms-box-shadow:$x $y $color $over $type;
+  box-shadow:$x $y $color $over $type;
+}
+@mixin animation($anima,$time,$type:null,$delay:null,$count:null){
+  -webkit-animation:$anima,$time,$type;
+  -moz-animation:$anima,$time,$type;
+  -o-animation:$anima,$time,$type;
+  -ms-animation:$anima,$time,$type;
+  animation:$anima,$time,$type;
+}
+.float-r{
+  @include float(right);
+}
+.float-l{
+  @include float(left);
+}
+.float-no{
+  @include float(none);
+}
+.border-r5{
+  @include width(100px);
+  @include height(40px);
+  @include border(2px,#ddd,solid);
+  @include border-radiusone(top,right,10px);
+  @include border-radiusone(bottom,right,10px);
+}
+.martop-5{
+  @include margin(15px);
+  font-size: pxToEm(18px);
+}
+.min-icon{
+  @include background(index-icon,png,no-repeat);
+}
+.animate{
+  @include box-shadow(2px,3px,4px,#dddddd);
+  @include animation(all,0.5s,ease-in-out);
+}
+//for
+@for $i from 1 through 3{
+  .item-#{$i} { width: 2em * $i; }
+}
+//each
+$animal-list: puma, sea-slug, egret, salamander;
+@each $animal in $animal-list {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
