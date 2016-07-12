@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link type="text/css" href="../css/base.css" rel="stylesheet" />
+<link type="text/css" href="../css/base.min.css" rel="stylesheet" />
 <link type="text/css" href="../css/bootstrap.css" rel="stylesheet" />
+<link type="text/css" href="../scss/index.css" rel="stylesheet" />
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/numChangeEffect.js"></script>
 <title>数字递增，递减效果插件</title>
@@ -12,23 +13,25 @@
 <div class="left-bar">
  <div class="title"><a href=""><span class="glyphicon glyphicon glyphicon-th-large"></span></a></div>
 </div>
-<div class="top-bar">
+<div class="top-bar animate">
 </div>
 <div class="main" style="height:1000px;">
    <div class="center">
      <h2 class="num" id="num">130</h2>
      <div class="input">
-        <input type="text" name="email" class="email" />
-        <label class="label">用户名</label>
+        <input type="text" name="email" class="email" id="username" />
+        <label class="label" for="username">用户名</label>
         <span class="line"></span>
      </div>
      <div class="input">
-        <input type="password" name="password" class="email" />
-        <label class="label">密码</label>
+        <input type="password" name="password" class="email" id="password" />
+        <label class="label" for="password">密码</label>
         <span class="line"></span>
      </div>
      <div class="random"></div>
      <div class="ssbtn"><button class="btns">随机数</button></div>
+	   <div class="border-r5"></div>
+	   <button class="border-r5 martop-5" style="width:70px;height:40px;">submit</button>
    </div>
 </div>
 <div class="right-bar">
@@ -40,12 +43,12 @@
 $(function(){
 	$(window).scroll(function(){
 		if($(window).scrollTop()<=300){
-		   $(".left-bar").animate({left:'-47px'},400,'linear');
-		   $(".top-bar").animate({top:'0'},400,'linear');
+		   $(".left-bar").animate({left:'-47px'},250,'swing');
+		   $(".top-bar").animate({top:'0'},150,'swing');
 	    }
 		if($(window).scrollTop()>300){
-		   $(".left-bar").animate({left:'0'},400,'linear');
-		   $(".top-bar").animate({top:'-47px'},400,'linear');
+		   $(".left-bar").animate({left:'0'},250,'swing');
+		   $(".top-bar").animate({top:'-47px'},150,'swing');
 		}
 	});
 	var num=[],nums;
@@ -63,14 +66,33 @@ $(function(){
 		console.info(num);
 	});
 	var s=!0;
-	$(".right-bar").mouseover(function(e){
-		$(this).animate({"right":"0"},400);
+	$(".right-bar").mouseenter(function(e){
+		$(this).animate({"right":"0"},250);
 		s=false;
+		e.stopPropagation();
+	});
+	var show=false, showed=false;
+	setInterval(function () {
+		if (show && !showed) {
+			$(".martop-5").animate({width:"120px",height:'60px'},250);
+			showed=true;
+		} else if (!show && showed) {
+			$(".martop-5").animate({width:"70px",height:'40px'},250);
+			showed=false;
+		}
+	}, 100);
+
+	$(".martop-5").mouseenter(function(){
+		show=true;
+	});
+	$(".martop-5").mouseleave(function(){
+		show=false;
 	});
 	$(".main").mouseover(function(e){
 		if(s==false){
-		  $(".right-bar").animate({"right":"-40px"},400);
+		  $(".right-bar").animate({"right":"-40px"},250);
 		}
+		e.stopPropagation();
 	});
 	$(".email").focus(function(){
 		$(this).siblings(".label").animate({top:'-18px',left:'-1px',fontSize:'12px'},300).css({'color':'#06F'});

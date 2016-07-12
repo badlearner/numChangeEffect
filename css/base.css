@@ -1,4 +1,4 @@
-/* CSS Document
+/*! CSS Document
  * reset.css
  * author Zheng Xu
  */
@@ -33,9 +33,9 @@ a:hover{color:#fff;}
 .right-bar{position:fixed;width:40px;height:100%;right:-40px;top:0;background-color:#333; }
 .bar{height:100%;position: absolute;z-index: 999998;top: 0;left: -5px;width: 35px;color:#03F;}
 .dd{position: absolute;z-index: 999999;left: -36px;height:50px;width:50px;}
-.input{ position:relative;margin-top:25px; height:26px;}
-.input .label{ position:absolute;z-index:-1;left:5px; top:2px; color:#CACCD6; font-size:14px;}
-.input .line{ position:absolute; display:block; height:2px; background-color:#06F; z-index:5; top:24px;*top:27px;left:0;width:0px;}
+.center .input{ position:relative;margin-top:25px; height:26px;}
+.center .input .label{ position:absolute;left:5px; top:2px; color:#CACCD6; font-size:1em;}
+.center .input .line{ position:absolute; display:block; height:2px; background-color:#06F; z-index:5; top:24px;*top:27px;left:0;width:0px;}
 .random{margin:20px auto; zoom:1;}
 .random .nums{float:left;display:block; padding:3px 4px; background-color:#06F; color:#fff; border-radius:3px; margin-left:10px; margin-top:5px;}
 .ssbtn{ margin:20px auto; clear:both; display:block; padding:20px;}

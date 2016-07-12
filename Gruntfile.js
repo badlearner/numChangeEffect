@@ -29,6 +29,7 @@ module.exports = function(grunt) {
                   keepSpecialComments: '*'
               },
               files: {
+                  './css/base.min.css': ['./css/base.css'],
                   './css/index.min.css': ['./css/index.css']
               }
           }
