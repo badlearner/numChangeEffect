@@ -15,6 +15,14 @@ $baseFontSize2:14px;
 @mixin padding($valuetb:null,$valuerl:null){
   padding:$valuetb $valuerl;
 }
+//one margin
+@mixin margin-one($type,$value){
+  margin-#{$type}:$value;
+}
+//one padding
+@mixin padding-one($type,$value){
+  padding-#{$type}:$value;
+}
 //display
 @mixin display($type){
   display:$type;
@@ -22,6 +30,9 @@ $baseFontSize2:14px;
 //cursor
 @mixin cursor($type){
   cursor: $type;
+}
+@mixin fontsize($val){
+  font-size: $val;
 }
 //outline
 @mixin outline($type){
@@ -52,8 +63,8 @@ $baseFontSize2:14px;
   height:$val;
 }
 //borderall
-@mixin border($val:null,$color:null,$type:null){
-  border:$val $color $type;
+@mixin border($val:null,$type:null,$color:null){
+  border:$val $type $color;
 }
 //borderone
 @mixin borderone($dire,$val:null,$color:null,$type:null){
@@ -79,12 +90,16 @@ $baseFontSize2:14px;
 @function pxToEm($px) {
   @return $px / $baseFontSize2 * 1em;
 }
-html,body{
+*{margin:0;padding:0;}
+html{
   font-family: $fontStack;
-  background: $basebgcolor;
   font-size: 14px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+}
+body{
+  background: $basebgcolor;
+  width:100%;
 }
 article,
 aside,
@@ -101,8 +116,11 @@ section,
 summary {
   @include display(block);
 }
-html,body,fieldset,iframe,abbr{
+fieldset,iframe,abbr{
   @include border(0);
+}
+p,span{
+  @include fontsize(1rem);
 }
 ul,li{
   @include list-style(none);
@@ -110,7 +128,6 @@ ul,li{
 table{
   @include border-collapse(collapse);
   @include border-spacing(0);
-
 }
 a,button{
   @include cursor(pointer);
@@ -119,7 +136,7 @@ a,button{
 label{
   @include cursor(text);
 }
-del,ins,u,s,a,a:hover{
+del,ins,u,s,a,a:hover,a:active{
   @include text-decoration(none);
   @include color(#333);
 }

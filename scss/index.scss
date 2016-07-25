@@ -1,9 +1,11 @@
 @import "reset.scss";//can user reset.scss functions
 //background
-@mixin background($bgname,$type,$repeat,$position:null){
-  $url:"../img";
-  $color:#ead1a8;
+@mixin background($color,$url:null,$bgname:null,$type:null,$repeat:null,$position:null){
   background:$color url(#{$url}/#{$bgname}.#{$type}) $repeat $position;
+}
+@mixin background-color($dir,$color1,$color2){
+  background-image:-webkit-linear-gradient(to $dir,$color1,$color2);
+  background-image:linear-gradient(to $dir,$color1,$color2);
 }
 //float
 @mixin float($type){
@@ -13,16 +15,16 @@
 @mixin bgposition($x,$y){
 background-position: $x $y;
 }
-//border-radiusall
-@mixin border-radiusall($value){
+//border-radius-all
+@mixin border-radius-all($value){
   -webkit-border-radius: $value;
   -moz-border-radius: $value;
   -o-border-radius:$value;
-  -ms-border-radius:$alue;
+  -ms-border-radius:$value;
   border-radius: $value;
 }
-//border-radiusone
-@mixin border-radiusone($vert,$horz,$value){
+//border-radius-one
+@mixin border-radius-one($vert,$horz,$value){
   -webkit-border-#{$vert}-#{$horz}-radius: $value;
   -moz-border-#{$vert}-#{$horz}-radius: $value;
   -o-border-#{$vert}-#{$horz}-radius:$value;
@@ -37,11 +39,35 @@ background-position: $x $y;
   box-shadow:$x $y $color $over $type;
 }
 @mixin animation($anima,$time,$type:null,$delay:null,$count:null){
-  -webkit-animation:$anima,$time,$type;
-  -moz-animation:$anima,$time,$type;
-  -o-animation:$anima,$time,$type;
-  -ms-animation:$anima,$time,$type;
-  animation:$anima,$time,$type;
+  -webkit-animation:$anima $time $type;
+  -moz-animation:$anima $time $type;
+  -o-animation:$anima $time $type;
+  -ms-animation:$anima $time $type;
+  animation:$anima $time $type;
+}
+@mixin tranform($type){
+  transform:$type;
+  -ms-transform:$type;
+  -moz-transform:$type;
+  -webkit-transform:$type;
+  -o-transform:$type;
+}
+@mixin transition($value,$time,$types){
+  transition:$value $time $types;
+  -moz-transition:$value $time $types;
+  -webkit-transition:$value $time $types;
+  -o-transition:$value $time $types;
+}
+@mixin linear-gradient($direction,$color1,$color2){
+  background: -webkit-linear-gradient($direction,$color1, $color2); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient($direction,$color1, $color2); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient($direction,$color1, $color2); /* Firefox 3.6 - 15 */
+  background: linear-gradient($direction,$color1, $color2);
+}
+@mixin  max-screen($max,$min:null){
+  @media screen and (max-width:$max){
+    @content;
+  }
 }
 .float-r{
   @include float(right);
@@ -53,11 +79,8 @@ background-position: $x $y;
   @include float(none);
 }
 .border-r5{
-  @include width(100px);
-  @include height(40px);
-  @include border(2px,#ddd,solid);
-  @include border-radiusone(top,right,10px);
-  @include border-radiusone(bottom,right,10px);
+  @include padding(5px,25px);
+  @include margin-one(top,10px);
 }
 .martop-5{
   @include margin(15px);
@@ -80,4 +103,32 @@ $animal-list: puma, sea-slug, egret, salamander;
   .#{$animal}-icon {
     background-image: url('/images/#{$animal}.png');
   }
+}
+@include max-screen(480px){
+ body{
+   color:#0d3349;
+ }
+  .martop-5{
+    @include margin(35px);
+    font-size: pxToEm(30px);
+  }
+  p{color:#009926;}
+}
+.cricle{
+  @include border-radius-all(50px);
+  width:50px;
+  height:50px;
+  @include transition(all,4s,cubic-bezier(1,0.01,0.01,1));
+  @include border(2px,#C3DCE8,solid);
+  @include background-color(top,#1F319C,#C3DCE8);
+  @include box-shadow(0,0,8px,#000);
+}
+.cricle:hover{
+  @include tranform(rotate(7200deg));
+}
+.bg-5{
+  @include border(2px,#AFBFCE,solid);
+  @include border-radius-all(3px);
+  @include box-shadow(1px,1px,3px,#ddd);
+  @include linear-gradient(180deg,#FEFEFD,#DEE4E4);
 }

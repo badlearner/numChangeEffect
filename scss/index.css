@@ -2,12 +2,19 @@
  * reset.css
  * author Zheng Xu
  */
-html, body {
+* {
+  margin: 0;
+  padding: 0; }
+
+html {
   font-family: "Microsoft YaHei", "Helvetica", "sans-serif";
-  background: #fff;
   font-size: 14px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
+
+body {
+  background: #fff;
+  width: 100%; }
 
 article,
 aside,
@@ -24,8 +31,11 @@ section,
 summary {
   display: block; }
 
-html, body, fieldset, iframe, abbr {
+fieldset, iframe, abbr {
   border: 0; }
+
+p, span {
+  font-size: 1rem; }
 
 ul, li {
   list-style: none; }
@@ -41,7 +51,7 @@ a, button {
 label {
   cursor: text; }
 
-del, ins, u, s, a, a:hover {
+del, ins, u, s, a, a:hover, a:active {
   text-decoration: none;
   color: #333; }
 
@@ -62,26 +72,15 @@ textarea {
   float: none; }
 
 .border-r5 {
-  width: 100px;
-  height: 40px;
-  border: 2px #ddd solid;
-  -webkit-border-top-right-radius: 10px;
-  -moz-border-top-right-radius: 10px;
-  -o-border-top-right-radius: 10px;
-  -ms-border-top-right-radius: 10px;
-  border-top-right-radius: 10px;
-  -webkit-border-bottom-right-radius: 10px;
-  -moz-border-bottom-right-radius: 10px;
-  -o-border-bottom-right-radius: 10px;
-  -ms-border-bottom-right-radius: 10px;
-  border-bottom-right-radius: 10px; }
+  padding: 5px 25px;
+  margin-top: 10px; }
 
 .martop-5 {
   margin: 15px;
   font-size: 1.28571em; }
 
 .min-icon {
-  background: #ead1a8 url(../img/index-icon.png) no-repeat; }
+  background: index-icon url(png/no-repeat.); }
 
 .animate {
   -webkit-box-shadow: 2px 3px 4px #dddddd;
@@ -89,11 +88,11 @@ textarea {
   -moz-box-shadow: 2px 3px 4px #dddddd;
   -ms-box-shadow: 2px 3px 4px #dddddd;
   box-shadow: 2px 3px 4px #dddddd;
-  -webkit-animation: all, 0.5s, ease-in-out;
-  -moz-animation: all, 0.5s, ease-in-out;
-  -o-animation: all, 0.5s, ease-in-out;
-  -ms-animation: all, 0.5s, ease-in-out;
-  animation: all, 0.5s, ease-in-out; }
+  -webkit-animation: all 0.5s ease-in-out;
+  -moz-animation: all 0.5s ease-in-out;
+  -o-animation: all 0.5s ease-in-out;
+  -ms-animation: all 0.5s ease-in-out;
+  animation: all 0.5s ease-in-out; }
 
 .item-1 {
   width: 2em; }
@@ -115,5 +114,63 @@ textarea {
 
 .salamander-icon {
   background-image: url("/images/salamander.png"); }
+
+@media screen and (max-width: 480px) {
+  body {
+    color: #0d3349; }
+
+  .martop-5 {
+    margin: 35px;
+    font-size: 2.14286em; }
+
+  p {
+    color: #009926; } }
+.cricle {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -o-border-radius: 50px;
+  -ms-border-radius: 50px;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  transition: all 4s cubic-bezier(1, 0.01, 0.01, 1);
+  -moz-transition: all 4s cubic-bezier(1, 0.01, 0.01, 1);
+  -webkit-transition: all 4s cubic-bezier(1, 0.01, 0.01, 1);
+  -o-transition: all 4s cubic-bezier(1, 0.01, 0.01, 1);
+  border: 2px #C3DCE8 solid;
+  background-image: -webkit-linear-gradient(to top, #1F319C, #C3DCE8);
+  background-image: linear-gradient(to top, #1F319C, #C3DCE8);
+  -webkit-box-shadow: 0 0 8px #000;
+  -o-box-shadow: 0 0 8px #000;
+  -moz-box-shadow: 0 0 8px #000;
+  -ms-box-shadow: 0 0 8px #000;
+  box-shadow: 0 0 8px #000; }
+
+.cricle:hover {
+  transform: rotate(7200deg);
+  -ms-transform: rotate(7200deg);
+  -moz-transform: rotate(7200deg);
+  -webkit-transform: rotate(7200deg);
+  -o-transform: rotate(7200deg); }
+
+.bg-5 {
+  border: 2px #AFBFCE solid;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 1px 3px #ddd;
+  -o-box-shadow: 1px 1px 3px #ddd;
+  -moz-box-shadow: 1px 1px 3px #ddd;
+  -ms-box-shadow: 1px 1px 3px #ddd;
+  box-shadow: 1px 1px 3px #ddd;
+  background: -webkit-linear-gradient(180deg, #FEFEFD, #DEE4E4);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(180deg, #FEFEFD, #DEE4E4);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(180deg, #FEFEFD, #DEE4E4);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(180deg, #FEFEFD, #DEE4E4); }
 
 /*# sourceMappingURL=index.css.map */

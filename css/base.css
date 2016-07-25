@@ -2,32 +2,12 @@
  * reset.css
  * author Zheng Xu
  */
-*{margin:0;padding:0;}
-body{background:#ffffff;font-size: 14px; font-family:"Microsoft Yahei","微软雅黑",Tahoma, Geneva, sans-serif}
-header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
-table{border-collapse:collapse;border-spacing:0;}
-caption,th{text-align:left;font-weight:normal;}
-html,body,fieldset,img,iframe,abbr{border:0;}
-i,cite,em,var,address,dfn{font-style:normal;}
-[hidefocus],summary{outline:0;}
-li{list-style:none;}
-pre,code,kbd,samp{font-family:inherit;}
-q:before,q:after{content:none;}
-textarea{overflow:auto;resize:none;}
-label,summary{cursor:default;}
-a,button{cursor:pointer;}
-h1,h2,h3,h4,h5,h6,em,b{font-size:100%;}
-del,ins,u,s,a,a:hover{text-decoration:none;}
-a,a:hover,button,button:hover{outline:none; cursor:pointer;}
-a{color:#CCC;}
-a:hover{color:#fff;}
-
 .left-bar .title{color:#fff; font-size:1.4em; width:22px; margin:5px auto;}
 .num{color:#06F;font-family:Tahoma, Geneva, sans-serif;}
 .top-bar{position:absolute;height:45px;width:100%;left:0;top:0;background-color:#333;}
 .left-bar{position:fixed;width:45px;height:100%;left:-47px;top:0; box-shadow:1px 1px 2px #CCC; background-color:#333;}
-.main{ margin-top:47px;}
-.main .center{ margin:20px auto; width:900px;height:1500px;}
+.main{ margin-top:47px;width:100%;}
+.main .center{ margin:10px auto; width:300px;}
 .email{border:none; border-bottom:2px solid #ccc;height:26px; padding:2px 5px; *line-height:26px;*padding:0 5px;_padding:0;background-color:#fff;outline:none; transition:all 0.3s;background-color:transparent;width:200px;*width:190px;}
 .email:focus{background-color:#transparent;}
 .right-bar{position:fixed;width:40px;height:100%;right:-40px;top:0;background-color:#333; }

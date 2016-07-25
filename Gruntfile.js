@@ -161,7 +161,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');//html文件压缩模块
   grunt.loadNpmTasks('grunt-contrib-imagemin');//图片文件压缩模块
   //任务命令配置
-  grunt.registerTask('outputcss',['sass']);
+  grunt.registerTask('outputcss',['sass','cssmin:dist']);
   grunt.registerTask('minjs',['uglify:builda']);
   grunt.registerTask('minhtml',['htmlmin']);
   grunt.registerTask('concatjs',['concat']);
